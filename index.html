@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Surat Cinta dari Yarka</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffeef3;
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+    }
+
+    .center {
+      text-align: center;
+      margin-top: 20%;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #e91e63;
+      color: white;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      display: none;
+    }
+
+    h1 {
+      text-align: center;
+      color: #e91e63;
+    }
+
+    .love {
+      font-style: italic;
+      text-align: right;
+      margin-top: 40px;
+    }
+
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background: url('https://i.imgur.com/3fJ1P48.png') no-repeat center;
+      background-size: cover;
+      animation: float 6s linear infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1);
+        opacity: 0;
+      }
+    }
+
+    .corner-heart {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      background: url('https://i.imgur.com/3fJ1P48.png') no-repeat center;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+
+<audio id="musik" autoplay loop hidden>
+  <source src="https://dl.sndup.net/4gn4/Until%20I%20Found%20You%20-%20Stephen%20Sanchez.mp3" type="audio/mpeg">
+  Browser kamu nggak bisa muter musik romantis ini.
+</audio>
+
+<div class="center" id="login">
+  <h2>Ketik kode spesial kita:</h2>
+  <input type="text" id="nama" placeholder="Contoh: 020325"/>
+  <br/>
+  <button onclick="cekNama()">Buka Surat</button>
+</div>
+
+<div class="container" id="surat">
+  <h1>Surat Cinta Digital</h1>
+  <p>
+    TADAAA kejutan dari Yarka anjay, Happy monthversary yang kedua buat kita, gua masih ga nyangka wkwkwk kalau lu beneran jadi punya gua dan kita berhasil laluin 60 hari tanpa cekcok, walaupun gua tau lu ada dongkol² nya kan ama gua? wkwkk, maafin ya kalo gua sering bikin lu ngelus dada, tapi percaya deh itu bentukan caper gua doang. Gua beneran sayang sama lu yud, rasanya gua pengen kasih seluruh dunia buat lu tapi gua takut encok hhh, jadi gua kasih long teks abal abal ini aja ya.
+  </p>
+  <p>
+    Masih kayak kemarin, gua makasih banget udah sayang sama gua dan jagain gua — tapi gua juga tau lu tuh butuh dijaga. Gak papa banget kalau lu kadang ngerasa capek, ngerasa pengen nyerah, atau pengen ngeluh. Gua ada di sini bukan cuma buat diketawain becandaan gua, tapi juga buat jadi tempat lu lemah. Gua bangga banget sama lu, yud — lu tuh kuat banget, bisa terus jalan meski dunia kadang gila.
+  </p>
+  <p class="love">
+    - Dari yang bucin, Yarka
+  </p>
+</div>
+
+<div class="corner-heart"></div>
+
+<script>
+  function cekNama() {
+    const nama = document.getElementById("nama").value.trim();
+    if (nama === "020325") {
+      document.getElementById("login").style.display = "none";
+      document.getElementById("surat").style.display = "block";
+      document.getElementById("musik").play();
+      for (let i = 0; i < 15; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+        document.body.appendChild(heart);
+      }
+    } else {
+      alert("Kode rahasia salah... inget-inget lagi yuk tanggal jadian kita!");
+    }
+  }
+</script>
+
+</body>
+</html>
